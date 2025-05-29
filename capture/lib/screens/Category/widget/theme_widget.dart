@@ -152,8 +152,8 @@ class ThemeWidget extends StatelessWidget {
                   padding: EdgeInsets.all(0.w),
                   child: Image.asset(
                     imagePath,
-                    width: 100.w,
-                    height: 100.h,
+                    width: 130.w,
+                    height: 130.h,
                     fit: BoxFit.contain,
                   ),
                 ),
@@ -165,7 +165,7 @@ class ThemeWidget extends StatelessWidget {
             title,
             style: TextStyle(
               fontFamily: 'Pretendard',
-              fontSize: 16.sp,
+              fontSize: 25.sp,
               fontWeight: FontWeight.w500,
               color: Colors.black,
             ),

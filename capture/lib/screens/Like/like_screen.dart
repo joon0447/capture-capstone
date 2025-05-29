@@ -1,5 +1,6 @@
 import 'package:capture/widgets/appbar/search_app_bar_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LikeScreen extends StatefulWidget {
   const LikeScreen({super.key});
@@ -15,16 +16,16 @@ class _LikeScreenState extends State<LikeScreen> {
       appBar: const SearchAppBarWidget(title: '찜'),
       body: Column(
         children: [
-          const SizedBox(height: 20),
+          SizedBox(height: 20.h),
           Padding(
-            padding: const EdgeInsets.only(left: 16, top: 16),
+            padding: EdgeInsets.only(left: 16.w, top: 16.h),
             child: Column(
-              children: const [
+              children: [
                 Text(
                   '찜한 상품',
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
-                    fontSize: 18,
+                    fontSize: 30.sp,
                     color: Colors.black,
                   ),
                 ),

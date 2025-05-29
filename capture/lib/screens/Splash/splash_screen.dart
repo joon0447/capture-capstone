@@ -1,7 +1,8 @@
 import 'package:capture/database/category_api.dart';
 import 'package:capture/database/data.dart';
-import 'package:capture/screens/Main/main_screen.dart';
+import 'package:capture/functions/kakao_login.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -39,75 +40,54 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const SizedBox(height: 20),
-            const Text(
-              'CAPTURE',
-              style: TextStyle(
-                fontSize: 35,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'Pretendard',
-              ),
-            ),
-            const Text(
-              '쇼핑의 즐거움',
-              style: TextStyle(
-                fontSize: 20,
-                fontFamily: 'Pretendard',
-                color: Colors.grey,
-              ),
-            ),
-            const SizedBox(height: 50),
-            // if (_showLoginImage)
-            //   // 카카오 로그인
-            //   GestureDetector(
-            //     onTap: () async {
-            //       await KakaoLoginApi().login(context);
-            //     },
-            //     child: Padding(
-            //       padding: const EdgeInsets.symmetric(
-            //         horizontal: 40,
-            //         vertical: 20,
-            //       ),
-            //       child: Image.asset(
-            //         'assets/images/kakao_login_large_wide.png',
-            //       ),
-            //     ),
-            //   ),
-            GestureDetector(
-              onTap: () {
-                print('버튼 누름');
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const MainScreen()),
-                );
-              },
-              child: Container(
-                width: 300,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: const Center(
-                  child: Text(
-                    '시작하기',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Pretendard',
-                    ),
+    return ScreenUtilInit(
+      designSize: const Size(375, 1253),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) => Scaffold(
+        backgroundColor: Colors.white,
+        body: SafeArea(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(height: 20),
+                const Text(
+                  'CAPTURE',
+                  style: TextStyle(
+                    fontSize: 35,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Pretendard',
                   ),
                 ),
-              ),
+                const Text(
+                  '쇼핑의 즐거움',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontFamily: 'Pretendard',
+                    color: Colors.grey,
+                  ),
+                ),
+                const SizedBox(height: 50),
+                if (_showLoginImage)
+                  // 카카오 로그인
+                  GestureDetector(
+                    onTap: () async {
+                      await KakaoLoginApi().login(context);
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 40,
+                        vertical: 20,
+                      ),
+                      child: Image.asset(
+                        'assets/images/kakao_login_large_wide.png',
+                      ),
+                    ),
+                  ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

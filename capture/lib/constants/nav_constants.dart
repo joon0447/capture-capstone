@@ -12,7 +12,7 @@ class NavConstants {
   static const double navBarHeight = 120.0;
   static const double iconSize = 40.0;
   static const double mainIconSize = 50.0;
-  static const double textSize = 15.0;
+  static const double textSize = 25.0;
   static const double iconSpacing = 8.0;
   static const double mainIconOffset = -40.0;
   static const double mainTextOffset = 5.0;

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:capture/constants/nav_constants.dart';
 import 'package:capture/screens/Home/home_screen.dart';
+import 'package:capture/screens/Category/category_screen.dart';
 
 class BottomNavBar extends StatelessWidget {
   final int currentIndex;
@@ -16,7 +17,7 @@ class BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: NavConstants.navBarHeight,
+      height: NavConstants.navBarHeight.h,
       decoration: const BoxDecoration(
         color: Colors.white,
         border: Border(top: BorderSide(color: Colors.grey, width: 1)),
@@ -57,15 +58,15 @@ class _NavIcon extends StatelessWidget {
         children: [
           Icon(
             NavConstants.navItems[index].icon,
-            size: NavConstants.iconSize,
+            size: NavConstants.iconSize.w,
             color: currentIndex == index ? Colors.black : Colors.grey,
           ),
-          const SizedBox(height: NavConstants.iconSpacing),
+          SizedBox(height: NavConstants.iconSpacing.h),
           Text(
             NavConstants.navItems[index].label,
             style: TextStyle(
               color: currentIndex == index ? Colors.black : Colors.grey,
-              fontSize: NavConstants.textSize,
+              fontSize: NavConstants.textSize.sp,
               fontFamily: 'Pretendard',
               fontWeight: FontWeight.w500,
             ),
@@ -94,34 +95,34 @@ class _NavMainIcon extends StatelessWidget {
         onTap(2);
       },
       child: SizedBox(
-        height: NavConstants.navBarHeight,
+        height: NavConstants.navBarHeight.h,
         child: Stack(
           alignment: Alignment.center,
           children: [
             Positioned(
-              bottom: NavConstants.mainTextOffset,
+              bottom: NavConstants.mainTextOffset.h,
               child: Text(
                 '미리보기',
                 style: TextStyle(
                   color: currentIndex == 2 ? Colors.black : Colors.grey,
-                  fontSize: NavConstants.textSize,
+                  fontSize: NavConstants.textSize.sp,
                   fontFamily: 'Pretendard',
                   fontWeight: FontWeight.w500,
                 ),
               ),
             ),
             Transform.translate(
-              offset: const Offset(0, NavConstants.mainIconOffset),
+              offset: Offset(0, NavConstants.mainIconOffset.h),
               child: Container(
-                width: 60,
-                height: 60,
+                width: 60.w,
+                height: 60.w,
                 decoration: const BoxDecoration(
                   color: Colors.blue,
                   shape: BoxShape.circle,
                 ),
                 child: Icon(
                   NavConstants.navItems[2].icon,
-                  size: NavConstants.mainIconSize,
+                  size: NavConstants.mainIconSize.w,
                   color: Colors.white,
                 ),
               ),

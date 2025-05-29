@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
+class ScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final VoidCallback? onBack;
 
-  const MainAppBar({
+  const ScreenAppBar({
     super.key,
     required this.title,
     required this.onBack,
@@ -15,7 +15,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: EdgeInsets.only(top: 10.h),
+        padding: EdgeInsets.only(top: 40.h),
         child: AppBar(
           backgroundColor: Colors.white,
           elevation: 0,

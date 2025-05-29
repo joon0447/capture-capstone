@@ -1,6 +1,7 @@
 import 'package:capture/screens/Splash/splash_screen.dart';
 import 'package:capture/widgets/appbar/search_app_bar_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk_user.dart';
 
 class MypageScreen extends StatefulWidget {
@@ -58,23 +59,23 @@ class _MypageScreenState extends State<MypageScreen> {
                 const SizedBox(width: 16),
                 Text(
                   '$userNickname님',
-                  style: const TextStyle(
-                    fontSize: 24,
+                  style: TextStyle(
+                    fontSize: 30.sp,
                     fontFamily: 'Pretendard',
                     fontWeight: FontWeight.w700,
-                    color: Color(0xFF808080),
+                    color: const Color(0xFF808080),
                   ),
                 ),
               ],
             ),
             const SizedBox(height: 20),
-            const Text(
+            Text(
               '찜한 상품',
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 30.sp,
                 fontFamily: 'Pretendard',
                 fontWeight: FontWeight.w700,
-                color: Color(0xFF808080),
+                color: const Color(0xFF808080),
               ),
             ),
             const Divider(color: Color(0xFFE5E5E5), thickness: 1),
@@ -91,14 +92,14 @@ class _MypageScreenState extends State<MypageScreen> {
                 });
               },
               child: Row(
-                children: const [
-                  Icon(Icons.logout, color: Color(0xFF808080)),
-                  SizedBox(width: 10),
+                children: [
+                  const Icon(Icons.logout, color: Color(0xFF808080)),
+                  const SizedBox(width: 10),
                   Text(
                     '로그아웃',
                     style: TextStyle(
-                      color: Color(0xFF808080),
-                      fontSize: 18,
+                      color: const Color(0xFF808080),
+                      fontSize: 30.sp,
                       fontWeight: FontWeight.w500,
                     ),
                   ),

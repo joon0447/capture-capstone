@@ -102,7 +102,7 @@ class _UseScreenState extends State<UseScreen> {
                     _getBannerText(),
                     style: TextStyle(
                       fontFamily: 'Pretendard',
-                      fontSize: 26.sp,
+                      fontSize: 45.sp,
                       fontWeight: FontWeight.w700,
                       color: const Color.fromARGB(255, 255, 255, 255),
                     ),
@@ -125,7 +125,7 @@ class _UseScreenState extends State<UseScreen> {
                     '추천순',
                     style: TextStyle(
                       fontFamily: 'Pretendard',
-                      fontSize: 16.sp,
+                      fontSize: 25.sp,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -136,7 +136,7 @@ class _UseScreenState extends State<UseScreen> {
                     '인기순',
                     style: TextStyle(
                       fontFamily: 'Pretendard',
-                      fontSize: 16.sp,
+                      fontSize: 25.sp,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -147,7 +147,7 @@ class _UseScreenState extends State<UseScreen> {
                     '가격순',
                     style: TextStyle(
                       fontFamily: 'Pretendard',
-                      fontSize: 16.sp,
+                      fontSize: 25.sp,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -163,14 +163,14 @@ class _UseScreenState extends State<UseScreen> {
                       _selectedSort,
                       style: TextStyle(
                         fontFamily: 'Pretendard',
-                        fontSize: 15.sp,
+                        fontSize: 25.sp,
                         color: Colors.black,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                     Icon(
                       Icons.arrow_drop_down,
-                      size: 24.sp,
+                      size: 45.sp,
                       color: Colors.black,
                     ),
                   ],

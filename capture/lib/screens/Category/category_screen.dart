@@ -40,22 +40,22 @@ class _CategoryScreenState extends State<CategoryScreen> {
       body: Row(
         children: [
           Container(
-            width: 100,
+            width: 100.w,
             height: double.infinity,
             color: const Color(0xFFEDEDED),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const SizedBox(height: 32),
+                SizedBox(height: 32.h),
                 ...List.generate(_categories.length, (index) {
                   final category = _categories[index];
                   final isSelected = category == _selectedCategory;
 
                   return Padding(
-                    padding: const EdgeInsets.only(
-                      left: 12,
-                      right: 12,
-                      bottom: 15,
+                    padding: EdgeInsets.only(
+                      left: 12.w,
+                      right: 12.w,
+                      bottom: 30.h,
                     ),
                     child: GestureDetector(
                       onTap: () {
@@ -70,7 +70,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                           fontFamily: 'Pretendard',
                           fontWeight:
                               isSelected ? FontWeight.w700 : FontWeight.w400,
-                          fontSize: 15,
+                          fontSize: 25.sp,
                           color: isSelected
                               ? Colors.black
                               : const Color(0xFF8D8D8D),

@@ -1,6 +1,6 @@
+import 'package:capture/screens/Category/Use/use_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:capture/screens/Category/Use/use_screen.dart';
 
 class FeatureWidget extends StatelessWidget {
   const FeatureWidget({super.key});
@@ -117,8 +117,8 @@ class FeatureWidget extends StatelessWidget {
                   padding: EdgeInsets.all(0.w),
                   child: Image.asset(
                     iconPath,
-                    width: 100.w,
-                    height: 100.h,
+                    width: 130.w,
+                    height: 130.h,
                     fit: BoxFit.contain,
                   ),
                 ),
@@ -130,7 +130,7 @@ class FeatureWidget extends StatelessWidget {
             title,
             style: TextStyle(
               fontFamily: 'Pretendard',
-              fontSize: 16.sp,
+              fontSize: 25.sp,
               fontWeight: FontWeight.w500,
               color: Colors.black,
             ),

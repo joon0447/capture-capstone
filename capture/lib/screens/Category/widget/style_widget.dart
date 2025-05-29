@@ -68,7 +68,7 @@ class StyleWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.all(16.w),
       child: Column(
         children: [
           _buildStyleRow(
@@ -79,7 +79,7 @@ class StyleWidget extends StatelessWidget {
             'assets/images/bucket-hat.png',
             () => _handleBucketHatTap(context),
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: 20.h),
           _buildStyleRow(
             '비니',
             'assets/images/beani.png',
@@ -88,7 +88,7 @@ class StyleWidget extends StatelessWidget {
             'assets/images/pedora.png',
             () => _handlePedoraTap(context),
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: 20.h),
           _buildStyleRow(
             '베레모',
             'assets/images/beremo.png',
@@ -113,7 +113,7 @@ class StyleWidget extends StatelessWidget {
     return Row(
       children: [
         Expanded(child: _buildStyleItem(leftTitle, leftImage, leftOnTap)),
-        const SizedBox(width: 16),
+        SizedBox(width: 16.w),
         Expanded(child: _buildStyleItem(rightTitle, rightImage, rightOnTap)),
       ],
     );
@@ -125,8 +125,8 @@ class StyleWidget extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            width: 100,
-            height: 100,
+            width: 100.w,
+            height: 100.w,
             decoration: BoxDecoration(
               border: Border.all(color: const Color(0xFFD9D9D9), width: 1),
               borderRadius: BorderRadius.circular(20),
@@ -135,23 +135,23 @@ class StyleWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(0),
+                  padding: EdgeInsets.all(0.w),
                   child: Image.asset(
                     imagePath,
-                    width: 100,
-                    height: 100,
+                    width: 130.w,
+                    height: 130.h,
                     fit: BoxFit.contain,
                   ),
                 ),
               ],
             ),
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8.h),
           Text(
             title,
-            style: const TextStyle(
+            style: TextStyle(
               fontFamily: 'Pretendard',
-              fontSize: 16,
+              fontSize: 25.sp,
               fontWeight: FontWeight.w500,
               color: Colors.black,
             ),

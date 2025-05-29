@@ -76,7 +76,7 @@ class _ThemeScreenState extends State<ThemeScreen> {
                     '추천순',
                     style: TextStyle(
                       fontFamily: 'Pretendard',
-                      fontSize: 16.sp,
+                      fontSize: 25.sp,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -87,7 +87,7 @@ class _ThemeScreenState extends State<ThemeScreen> {
                     '인기순',
                     style: TextStyle(
                       fontFamily: 'Pretendard',
-                      fontSize: 16.sp,
+                      fontSize: 25.sp,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -98,7 +98,7 @@ class _ThemeScreenState extends State<ThemeScreen> {
                     '가격순',
                     style: TextStyle(
                       fontFamily: 'Pretendard',
-                      fontSize: 16.sp,
+                      fontSize: 25.sp,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -114,14 +114,14 @@ class _ThemeScreenState extends State<ThemeScreen> {
                       _selectedSort,
                       style: TextStyle(
                         fontFamily: 'Pretendard',
-                        fontSize: 15.sp,
+                        fontSize: 25.sp,
                         color: Colors.black,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                     Icon(
                       Icons.arrow_drop_down,
-                      size: 24.sp,
+                      size: 45.sp,
                       color: Colors.black,
                     ),
                   ],

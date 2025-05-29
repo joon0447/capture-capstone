@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SearchAppBarWidget extends StatelessWidget
     implements PreferredSizeWidget {
@@ -26,19 +27,19 @@ class SearchAppBarWidget extends StatelessWidget
       ),
       title: Text(
         title,
-        style: const TextStyle(
+        style: TextStyle(
           color: Colors.black,
-          fontSize: 18,
+          fontSize: 30.sp,
           fontFamily: 'Pretendard',
           fontWeight: FontWeight.w600,
         ),
       ),
       actions: [
         IconButton(
-          icon: const Icon(Icons.search, color: Colors.black, size: 22),
+          icon: Icon(Icons.search, color: Colors.black, size: 45.sp),
           onPressed: onSearchTap ?? () {},
         ),
-        const SizedBox(width: 8),
+        SizedBox(width: 8.w),
       ],
     );
   }
