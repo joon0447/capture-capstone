@@ -88,7 +88,7 @@ class _ProductScreenState extends State<ProductScreen> {
                               Text(
                                 widget.product?.brand ?? '',
                                 style: TextStyle(
-                                  fontSize: 16.sp,
+                                  fontSize: 35.sp,
                                   fontFamily: 'Pretendard',
                                   fontWeight: FontWeight.w600,
                                   color: const Color(0xFF434343),
@@ -97,7 +97,7 @@ class _ProductScreenState extends State<ProductScreen> {
                               Text(
                                 widget.product?.name ?? '',
                                 style: TextStyle(
-                                  fontSize: 20.sp,
+                                  fontSize: 25.sp,
                                   fontFamily: 'Pretendard',
                                   fontWeight: FontWeight.w600,
                                 ),
@@ -106,7 +106,7 @@ class _ProductScreenState extends State<ProductScreen> {
                               Text(
                                 '${widget.product?.price.toString().replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]},')}원',
                                 style: TextStyle(
-                                  fontSize: 24.sp,
+                                  fontSize: 25.sp,
                                   fontFamily: 'Pretendard',
                                   fontWeight: FontWeight.w700,
                                 ),
@@ -144,7 +144,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                     '미리보기',
                                     style: TextStyle(
                                       color: const Color(0xFF5A86E8),
-                                      fontSize: 15.sp,
+                                      fontSize: 25.sp,
                                       fontWeight: FontWeight.w700,
                                       fontFamily: 'Pretendard',
                                     ),
@@ -211,7 +211,7 @@ class _ProductScreenState extends State<ProductScreen> {
                     '쇼핑몰 바로가기',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 22.sp,
+                      fontSize: 30.sp,
                       fontWeight: FontWeight.w700,
                       fontFamily: 'Pretendard',
                     ),
