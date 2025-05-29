@@ -37,6 +37,14 @@ dependencies:
   cupertino_icons: ^1.0.2
   deepar_flutter: ^0.0.5
   permission_handler: ^10.4.5
+  url_launcher: ^6.1.11
+  kakao_flutter_sdk: ^1.9.0
+  cached_network_image: ^3.2.3
+  http: ^0.13.6
+  flutter_svg: ^2.0.5
+  smooth_page_indicator: ^1.2.1
+  flutter_screenutil: ^5.7.0
+  camera: ^0.10.5+5
 
 dev_dependencies:
   flutter_test:
@@ -61,9 +69,41 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/images/kakao_login_large_wide.png
+    - assets/images/home-banner-1.png
+    - assets/images/home-banner-2.png
+    - assets/images/home-banner-3.png
+    - assets/images/ball-cap.png
+    - assets/images/beani.png
+    - assets/images/bucket-hat.png
+    - assets/images/low-price-banner.png
+    - assets/images/best-banner.png
+    - assets/images/pedora.png
+    - assets/images/beremo.png
+    - assets/images/sun-cap.png
+    - assets/images/mountain-hat.png
+    - assets/images/golf-cap.png
+    - assets/images/safety-hat.png
+    - assets/images/newera-logo.png
+    - assets/images/adidas-logo.png
+    - assets/images/nike-logo.png
+    - assets/images/mlb-logo.png
+    - assets/images/kodak-logo.png
+    - assets/images/newbalance-logo.png
+    - assets/images/binteage-theme.png
+    - assets/images/casual-theme.png
+    - assets/images/sporty-theme.png
+    - assets/images/classic-theme.png
+    - assets/images/street-theme.png
+    - assets/icons/all-product-icon.svg
+    - assets/icons/best-icon.svg
+    - assets/icons/low-price-icon.svg
+    - assets/icons/search-icon.svg
+    - assets/images/outdoor.png
+    - assets/images/golf.png
+    - assets/images/exercise.png
+    - assets/images/safe.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -76,17 +116,21 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+  fonts:
+    - family: Pretendard
+      fonts:
+        - asset: assets/fonts/Pretendard-Bold.otf
+          weight: 700
+        - asset: assets/fonts/Pretendard-SemiBold.otf
+          weight: 600
+        - asset: assets/fonts/Pretendard-Regular.otf
+          weight: 400
+        - asset: assets/fonts/Pretendard-ExtraBold.otf
+          weight: 800
+        - asset: assets/fonts/Pretendard-Light.otf
+          weight: 300
+        - asset: assets/fonts/Pretendard-ExtraLight.otf
+          weight: 200
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
