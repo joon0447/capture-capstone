@@ -1,8 +1,10 @@
+import 'package:capture/database/like.dart';
 import 'package:capture/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:capture/functions/get_user_id.dart';
 
 class ProductScreen extends StatefulWidget {
   final Product? product;
@@ -14,6 +16,32 @@ class ProductScreen extends StatefulWidget {
 }
 
 class _ProductScreenState extends State<ProductScreen> {
+  String? userId;
+  bool? isLiked;
+
+  @override
+  void initState() {
+    super.initState();
+    getUserId().then((id) {
+      setState(() {
+        userId = id;
+      });
+
+      if (id != null && widget.product != null) {
+        Like.getLike(widget.product!.id, id).then((liked) {
+          print('getLike 응답: $liked'); // 디버깅용
+          if (mounted) {
+            // mounted 체크 추가
+            setState(() {
+              isLiked = liked;
+            });
+            print('isLiked 업데이트 후: $isLiked'); // 디버깅용
+          }
+        });
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -220,13 +248,50 @@ class _ProductScreenState extends State<ProductScreen> {
               ),
               SizedBox(width: 12.w),
               IconButton(
-                onPressed: () {
-                  // TODO: 찜하기 로직 추가
-                  print('찜하기 클릭');
+                onPressed: () async {
+                  print('찜하기 버튼 클릭됨');
+                  print('Product 객체: ${widget.product}');
+                  print('Product ID: ${widget.product?.id}');
+                  print('User ID: $userId');
+
+                  if (widget.product == null) {
+                    print('Product가 null입니다!');
+                    return;
+                  }
+
+                  if (userId == null) {
+                    print('User ID가 null입니다!');
+                    return;
+                  }
+
+                  try {
+                    if (isLiked == true) {
+                      await Like.deleteLike(widget.product!.id, userId!);
+                      if (mounted) {
+                        setState(() {
+                          isLiked = false;
+                        });
+                      }
+                    } else {
+                      await Like.addLike(widget.product!.id, userId!);
+                      if (mounted) {
+                        setState(() {
+                          isLiked = true;
+                        });
+                      }
+                    }
+                  } catch (e) {
+                    print('찜하기 처리 중 오류 발생: $e');
+                    if (mounted) {
+                      setState(() {
+                        isLiked = isLiked == true ? false : true;
+                      });
+                    }
+                  }
                 },
-                icon: const Icon(
-                  Icons.favorite_border,
-                  color: Color(0xFF2F9BF3),
+                icon: Icon(
+                  isLiked == true ? Icons.favorite : Icons.favorite_border,
+                  color: isLiked == true ? Colors.red : const Color(0xFF2F9BF3),
                   size: 30,
                 ),
               ),
