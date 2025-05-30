@@ -104,6 +104,8 @@ flutter:
     - assets/images/golf.png
     - assets/images/exercise.png
     - assets/images/safe.png
+    - assets/effects/test.deepar
+  
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

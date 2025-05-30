@@ -1,5 +1,5 @@
+import 'package:capture/screens/AR/ar_screen.dart';
 import 'package:capture/screens/Category/category_screen.dart';
-import 'package:capture/screens/Face/face_screen.dart';
 import 'package:capture/screens/Home/home_screen.dart';
 import 'package:capture/screens/Like/like_screen.dart';
 import 'package:capture/screens/Mypage/mypage_screen.dart';
@@ -19,7 +19,7 @@ class _MainScreenState extends State<MainScreen> {
         HomeScreen(
             onNavigate: (index) => setState(() => _selectedIndex = index)),
         const CategoryScreen(),
-        const FaceScreen(),
+        const ARScreen(),
         const LikeScreen(),
         const MypageScreen(),
       ];
