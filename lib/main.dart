@@ -1,6 +1,8 @@
 import 'package:capture/screens/Splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
+import 'package:provider/provider.dart';
+import 'package:capture/database/like_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -8,7 +10,14 @@ void main() async {
   // 카카오 초기화
   KakaoSdk.init(nativeAppKey: '45d50b632429ae9a61b47c8444795cdb');
 
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => LikeProvider()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

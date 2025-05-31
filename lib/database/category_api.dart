@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:capture/constants/url.dart';
+import 'package:capture/database/like.dart';
 import 'package:http/http.dart' as http;
 
 class CategoryApi {
@@ -72,6 +73,28 @@ class CategoryApi {
       return filteredData;
     } catch (e) {
       print('카테고리 필터링 오류: $e');
+      return []; // 오류 발생 시 빈 리스트 반환
+    }
+  }
+
+  //좋아요 된 모자 데이터를 가져오는 함수
+  static Future<List<dynamic>> getLikedData({required String userId}) async {
+    try {
+      if (allData.isEmpty) {
+        await getAllData(); // 데이터가 없으면 먼저 로드
+      }
+
+      // 사용자의 찜 목록 가져오기
+      final likedIds = await Like.getLikeList(userId);
+
+      // 찜한 상품 ID와 일치하는 데이터만 필터링
+      List<dynamic> filteredData = allData.where((product) {
+        return likedIds.contains(product['_id'].toString());
+      }).toList();
+
+      return filteredData;
+    } catch (e) {
+      print('찜한 상품 필터링 오류: $e');
       return []; // 오류 발생 시 빈 리스트 반환
     }
   }

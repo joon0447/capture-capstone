@@ -45,6 +45,7 @@ dependencies:
   smooth_page_indicator: ^1.2.1
   flutter_screenutil: ^5.7.0
   camera: ^0.10.5+5
+  provider: ^6.1.5
 
 dev_dependencies:
   flutter_test:

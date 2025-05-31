@@ -1,10 +1,12 @@
 import 'package:capture/database/like.dart';
+import 'package:capture/database/like_provider.dart';
 import 'package:capture/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:capture/functions/get_user_id.dart';
+import 'package:provider/provider.dart';
 
 class ProductScreen extends StatefulWidget {
   final Product? product;
@@ -266,14 +268,16 @@ class _ProductScreenState extends State<ProductScreen> {
 
                   try {
                     if (isLiked == true) {
-                      await Like.deleteLike(widget.product!.id, userId!);
+                      await Provider.of<LikeProvider>(context, listen: false)
+                          .deleteLike(widget.product!.id, userId!);
                       if (mounted) {
                         setState(() {
                           isLiked = false;
                         });
                       }
                     } else {
-                      await Like.addLike(widget.product!.id, userId!);
+                      await Provider.of<LikeProvider>(context, listen: false)
+                          .addLike(widget.product!.id, userId!);
                       if (mounted) {
                         setState(() {
                           isLiked = true;

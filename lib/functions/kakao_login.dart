@@ -1,9 +1,12 @@
 import 'package:capture/constants/url.dart';
+import 'package:capture/database/like_provider.dart';
 import 'package:capture/screens/Main/main_screen.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+
+import 'package:provider/provider.dart';
 
 class KakaoLoginApi {
   Future<bool> login(BuildContext context) async {
@@ -40,6 +43,10 @@ class KakaoLoginApi {
             User user = await UserApi.instance.me();
             print('로그인한 사용자 ID: ${user.id}');
             print('로그인한 사용자 닉네임: ${user.kakaoAccount?.profile?.nickname}');
+            // LikeProvider를 통해 사용자의 찜 목록 업데이트
+            final likeProvider =
+                Provider.of<LikeProvider>(context, listen: false);
+            await likeProvider.updateLikeList(user.id.toString());
 
             // 서버로 로그인 정보 전송
             await _sendLoginInfoToServer(
@@ -62,7 +69,10 @@ class KakaoLoginApi {
           User user = await UserApi.instance.me();
           print('로그인한 사용자 ID: ${user.id}');
           print('로그인한 사용자 닉네임: ${user.kakaoAccount?.profile?.nickname}');
-
+          // LikeProvider를 통해 사용자의 찜 목록 업데이트
+          final likeProvider =
+              Provider.of<LikeProvider>(context, listen: false);
+          await likeProvider.updateLikeList(user.id.toString());
           // 서버로 로그인 정보 전송
           await _sendLoginInfoToServer(
             user.id.toString(),
