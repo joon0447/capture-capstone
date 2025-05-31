@@ -424,6 +424,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.0"
+  keyboard_detection:
+    dependency: "direct main"
+    description:
+      name: keyboard_detection
+      sha256: "7ce79b76589121ea6cb3eaa0ff39a111e2611d6d9381ffbc7982d885925d0067"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.6.3"
   lints:
     dependency: transitive
     description:

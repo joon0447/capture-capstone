@@ -4,6 +4,7 @@ import 'package:capture/screens/Home/widget/screen_bar_widget.dart';
 import 'package:capture/widgets/product/product_preview_card.dart';
 import 'package:capture/widgets/product/product_preview_large_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -17,7 +18,22 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   final TextEditingController _searchController = TextEditingController();
   List<dynamic> _searchResults = [];
-  final FocusNode _focusNode = FocusNode();
+  late final KeyboardVisibilityController _keyboardVisibilityController;
+  late final Stream<bool> _keyboardStream;
+  bool _isKeyboardVisible = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _keyboardVisibilityController = KeyboardVisibilityController();
+    _keyboardStream = _keyboardVisibilityController.onChange;
+    _keyboardStream.listen((visible) {
+      setState(() {
+        _isKeyboardVisible = visible;
+        print('Keyboard visibility changed: $visible');
+      });
+    });
+  }
 
   @override
   void dispose() {
@@ -32,15 +48,18 @@ class _SearchScreenState extends State<SearchScreen> {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) => Scaffold(
-        resizeToAvoidBottomInset: false,
+        resizeToAvoidBottomInset: true,
         appBar: ScreenAppBar(title: '검색', onBack: widget.onBack),
         body: SingleChildScrollView(
-          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 12.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                if (_isKeyboardVisible)
+                  SizedBox(
+                    height: 150.h,
+                  ),
                 Container(
                   margin: EdgeInsets.symmetric(vertical: 16.h),
                   padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -53,8 +72,18 @@ class _SearchScreenState extends State<SearchScreen> {
                     children: [
                       Expanded(
                         child: TextField(
-                          focusNode: _focusNode,
                           controller: _searchController,
+                          onSubmitted: (value) async {
+                            if (_searchController.text.isNotEmpty) {
+                              final searchResults =
+                                  await CategoryApi.getSearchData(
+                                search: _searchController.text,
+                              );
+                              setState(() {
+                                _searchResults = searchResults;
+                              });
+                            }
+                          },
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: '검색어를 입력해주세요.',
