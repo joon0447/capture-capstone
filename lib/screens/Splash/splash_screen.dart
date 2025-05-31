@@ -1,6 +1,7 @@
 import 'package:capture/database/category_api.dart';
 import 'package:capture/database/data.dart';
 import 'package:capture/functions/kakao_login.dart';
+import 'package:capture/screens/Main/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -82,6 +83,35 @@ class _SplashScreenState extends State<SplashScreen> {
                       ),
                       child: Image.asset(
                         'assets/images/kakao_login_large_wide.png',
+                      ),
+                    ),
+                  ),
+                if (_showLoginImage)
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MainScreen(),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      width: 200,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      child: const Center(
+                        child: Text(
+                          '로그인 없이 시작 (테스트)',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontFamily: 'Pretendard',
+                          ),
+                        ),
                       ),
                     ),
                   ),
