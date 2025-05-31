@@ -1,4 +1,4 @@
-import 'package:capture/screens/Home/widget/app_bar_widget.dart';
+import 'package:capture/screens/Home/widget/screen_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -24,7 +24,7 @@ class _SearchScreenState extends State<SearchScreen> {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) => Scaffold(
-        appBar: MainAppBar(title: '검색', onBack: widget.onBack),
+        appBar: ScreenAppBar(title: '검색', onBack: widget.onBack),
         body: Column(
           children: [
             Container(
