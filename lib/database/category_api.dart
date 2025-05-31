@@ -98,4 +98,28 @@ class CategoryApi {
       return []; // 오류 발생 시 빈 리스트 반환
     }
   }
+
+  static Future<List<dynamic>> getSearchData({required String search}) async {
+    try {
+      if (allData.isEmpty) {
+        await getAllData(); // 데이터가 없으면 먼저 로드
+      }
+
+      // 검색어를 소문자로 변환하여 대소문자 구분 없이 검색
+      String searchLower = search.toLowerCase();
+
+      // name 또는 brand에 검색어가 포함된 데이터만 필터링
+      List<dynamic> filteredData = allData.where((product) {
+        String name = (product['name'] ?? '').toString().toLowerCase();
+        String brand = (product['brand'] ?? '').toString().toLowerCase();
+
+        return name.contains(searchLower) || brand.contains(searchLower);
+      }).toList();
+
+      return filteredData;
+    } catch (e) {
+      print('검색 필터링 오류: $e');
+      return []; // 오류 발생 시 빈 리스트 반환
+    }
+  }
 }

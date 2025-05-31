@@ -46,6 +46,7 @@ dependencies:
   flutter_screenutil: ^5.7.0
   camera: ^0.10.5+5
   provider: ^6.1.5
+  flutter_keyboard_visibility: ^6.0.0
 
 dev_dependencies:
   flutter_test:
