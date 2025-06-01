@@ -10,6 +10,7 @@ class Product {
   final double rate;
   final String style;
   final String theme;
+  final String arPath;
 
   Product({
     required this.id,
@@ -23,6 +24,7 @@ class Product {
     required this.rate,
     required this.style,
     required this.theme,
+    required this.arPath,
   });
 
   factory Product.fromMap(Map<String, dynamic> map) {
@@ -38,6 +40,7 @@ class Product {
       rate: map['rate']?.toDouble() ?? 0.0,
       style: map['style']?.toString() ?? '',
       theme: map['theme']?.toString() ?? '',
+      arPath: map['ar']?.toString() ?? '',
     );
   }
 }

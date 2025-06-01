@@ -22,7 +22,7 @@ class _ARScreenState extends State<ARScreen> {
 
     await deepArController.switchEffectWithSlot(
       slot: 'cap',
-      path: 'assets/effects/test.deepar',
+      path: 'assets/effects/Red_Baseball_Cap.deepar',
     );
   }
 

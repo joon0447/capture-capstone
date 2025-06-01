@@ -108,7 +108,21 @@ flutter:
     - assets/images/exercise.png
     - assets/images/safe.png
     - assets/effects/test.deepar
-  
+    - assets/effects/Black_Bucket_Hat_Adidas.deepar
+    - assets/effects/Black_Fedora.deepar
+    - assets/effects/Black_Sport_Visor_Cap.deepar
+    - assets/effects/Blue_LA_Cap.deepar
+    - assets/effects/Gray_Flat_Cap.deepar
+    - assets/effects/Honda_Cap_Black.deepar
+    - assets/effects/Lee_Black_Bucket_hat.deepar
+    - assets/effects/Lee_Green_Visor_Cap.deepar
+    - assets/effects/NB_Lilac_Knit_Beanie.deepar
+    - assets/effects/Nike_Pink_Cap.deepar
+    - assets/effects/NodeLabs_Black_Cap.deepar
+    - assets/effects/Red_Baseball_Cap.deepar
+    - assets/effects/Red_Safety_Helmet.deepar
+    - assets/effects/Straw_Fedora_Hat.deepar
+    - assets/effects/Universal_Hunting_Cap.deepar
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
