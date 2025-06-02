@@ -123,6 +123,10 @@ flutter:
     - assets/effects/Red_Safety_Helmet.deepar
     - assets/effects/Straw_Fedora_Hat.deepar
     - assets/effects/Universal_Hunting_Cap.deepar
+    - assets/effects/adidas_tail_cap.deepar
+    - assets/effects/BlueLogo_Relex_Baseball_Cap.deepar
+    - assets/effects/NB_Pink_ColorPointPerformence.deepar
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
