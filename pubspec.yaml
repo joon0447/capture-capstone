@@ -107,7 +107,7 @@ flutter:
     - assets/images/golf.png
     - assets/images/exercise.png
     - assets/images/safe.png
-    - assets/effects/test.deepar
+    - assets/effects/Test.deepar
     - assets/effects/Black_Bucket_Hat_Adidas.deepar
     - assets/effects/Black_Fedora.deepar
     - assets/effects/Black_Sport_Visor_Cap.deepar
@@ -126,6 +126,7 @@ flutter:
     - assets/effects/adidas_tail_cap.deepar
     - assets/effects/BlueLogo_Relex_Baseball_Cap.deepar
     - assets/effects/NB_Pink_ColorPointPerformence.deepar
+  
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

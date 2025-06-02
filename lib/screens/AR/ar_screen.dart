@@ -1,8 +1,10 @@
+import 'package:capture/constants/ar_controller.dart';
 import 'package:capture/database/category_api.dart';
 import 'package:capture/models/product.dart';
 import 'package:capture/widgets/product/product_ar_card.dart';
 import 'package:deepar_flutter/deepar_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ARScreen extends StatefulWidget {
   const ARScreen({super.key});
@@ -12,20 +14,6 @@ class ARScreen extends StatefulWidget {
 }
 
 class _ARScreenState extends State<ARScreen> {
-  final deepArController = DeepArController();
-
-  Future<void> _initialController() async {
-    await deepArController.initialize(
-        androidLicenseKey:
-            'f305df4f09294395cc3bd643461efe288b6f1dfad2e9d4e7cfd92420c6e7af888830f735309108df',
-        iosLicenseKey: '');
-
-    await deepArController.switchEffectWithSlot(
-      slot: 'cap',
-      path: 'assets/effects/Red_Baseball_Cap.deepar',
-    );
-  }
-
   Widget buildCameraPreview() => SizedBox(
         height: MediaQuery.of(context).size.height * 0.82,
         child: Transform.scale(
@@ -37,30 +25,28 @@ class _ARScreenState extends State<ARScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: FutureBuilder(
-        future: _initialController(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            return Stack(
-              children: [
-                buildCameraPreview(),
-                Positioned(
-                  left: 0,
-                  right: 0,
-                  bottom: 10,
-                  child: productARCard(
-                    Product.fromMap(CategoryApi.allData[0]),
+      body: Stack(
+        children: [
+          buildCameraPreview(),
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 10,
+            child: SizedBox(
+              height: 150.h,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: CategoryApi.allData.length,
+                itemBuilder: (context, index) {
+                  return productARCard(
+                    Product.fromMap(CategoryApi.allData[index]),
                     context,
-                  ),
-                ),
-              ],
-            );
-          } else {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-        },
+                  );
+                },
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

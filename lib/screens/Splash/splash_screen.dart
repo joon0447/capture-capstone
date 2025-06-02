@@ -1,3 +1,4 @@
+import 'package:capture/constants/ar_controller.dart';
 import 'package:capture/database/category_api.dart';
 import 'package:capture/database/data.dart';
 import 'package:capture/functions/kakao_login.dart';
@@ -33,10 +34,18 @@ class _SplashScreenState extends State<SplashScreen> {
     }
   }
 
+  Future<void> _initialController() async {
+    await deepArController.initialize(
+        androidLicenseKey:
+            'f305df4f09294395cc3bd643461efe288b6f1dfad2e9d4e7cfd92420c6e7af888830f735309108df',
+        iosLicenseKey: '');
+  }
+
   @override
   void initState() {
     super.initState();
     _fetchHomeData();
+    _initialController();
   }
 
   @override
