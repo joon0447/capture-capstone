@@ -12,9 +12,9 @@ class ImagePaths {
       case 0:
         return '수많은 스타일, \n다양한 캡 모자를 만나보세요!';
       case 1:
-        return '앱에서 확인하는\n나에게 딱 맞는 모자';
+        return '자연을 닮은 모자\n당신의 트래킹 파트너';
       case 2:
-        return '바람처럼 가볍게,\n여름을 쓰다';
+        return '햇빛은 가리고\n스윙에만 집중하세요';
       default:
         return '';
     }

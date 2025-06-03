@@ -12,7 +12,6 @@ import 'package:capture/screens/Product/product_screen.dart';
 import 'package:capture/widgets/product/product_preview_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../constants/banner.dart';
 
@@ -139,7 +138,22 @@ class _HomeScreenState extends State<HomeScreen> {
                                         ),
                                       );
                                     } else if (index == 1) {
-                                    } else if (index == 2) {}
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => const UseScreen(
+                                              use: 'outdoor', title: '등산'),
+                                        ),
+                                      );
+                                    } else if (index == 2) {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => const UseScreen(
+                                              use: 'golf', title: '골프'),
+                                        ),
+                                      );
+                                    }
                                   },
                                   child: Stack(
                                     children: [
@@ -194,6 +208,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ],
                       ),
+                      SizedBox(height: 26.h),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -205,20 +220,13 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Container(
-                                  margin: EdgeInsets.only(top: 20.h),
-                                  padding: EdgeInsets.all(12.w),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                      color: Colors.black,
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                  child: SvgPicture.asset(
-                                    'assets/icons/all-product-icon.svg',
-                                    width: 73.w,
-                                    height: 73.h,
+                                SizedBox(
+                                  width: 70.w,
+                                  height: 70.h,
+                                  child: Image.asset(
+                                    'assets/icons/all-product-icon.png',
+                                    width: 70.w,
+                                    height: 70.h,
                                   ),
                                 ),
                                 SizedBox(height: 8.h),
@@ -238,20 +246,13 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Container(
-                                  margin: EdgeInsets.only(top: 20.h),
-                                  padding: EdgeInsets.all(12.w),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                      color: Colors.black,
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                  child: SvgPicture.asset(
-                                    'assets/icons/low-price-icon.svg',
-                                    width: 73.w,
-                                    height: 73.h,
+                                SizedBox(
+                                  width: 70.w,
+                                  height: 70.h,
+                                  child: Image.asset(
+                                    'assets/icons/low-price-icon.png',
+                                    width: 70.w,
+                                    height: 70.h,
                                   ),
                                 ),
                                 SizedBox(height: 8.h),
@@ -271,20 +272,13 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Container(
-                                  margin: EdgeInsets.only(top: 20.h),
-                                  padding: EdgeInsets.all(12.w),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                      color: Colors.black,
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                  child: SvgPicture.asset(
-                                    'assets/icons/best-icon.svg',
-                                    width: 73.w,
-                                    height: 73.h,
+                                SizedBox(
+                                  width: 70.w,
+                                  height: 70.h,
+                                  child: Image.asset(
+                                    'assets/icons/best-icon.png',
+                                    width: 70.w,
+                                    height: 70.h,
                                   ),
                                 ),
                                 SizedBox(height: 8.h),
@@ -307,20 +301,13 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Container(
-                                  margin: EdgeInsets.only(top: 20.h),
-                                  padding: EdgeInsets.all(12.w),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                      color: Colors.black,
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                  child: SvgPicture.asset(
-                                    'assets/icons/search-icon.svg',
-                                    width: 73.w,
-                                    height: 73.h,
+                                SizedBox(
+                                  width: 70.w,
+                                  height: 70.h,
+                                  child: Image.asset(
+                                    'assets/icons/search-icon.png',
+                                    width: 70.w,
+                                    height: 70.h,
                                   ),
                                 ),
                                 SizedBox(height: 8.h),

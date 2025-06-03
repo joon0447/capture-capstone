@@ -126,6 +126,10 @@ flutter:
     - assets/effects/adidas_tail_cap.deepar
     - assets/effects/BlueLogo_Relex_Baseball_Cap.deepar
     - assets/effects/NB_Pink_ColorPointPerformence.deepar
+    - assets/icons/all-product-icon.png
+    - assets/icons/low-price-icon.png
+    - assets/icons/best-icon.png
+    - assets/icons/search-icon.png
   
 
 
