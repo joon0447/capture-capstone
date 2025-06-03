@@ -38,7 +38,6 @@ class _ARScreenState extends State<ARScreen> {
     setState(() {
       _switchEffect(deepArController, product);
     });
-    // 여기에 페이지가 변경될 때 실행할 함수를 추가하세요
   }
 
   Widget buildCameraPreview() => SizedBox(

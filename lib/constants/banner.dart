@@ -10,9 +10,9 @@ class ImagePaths {
   static String bannerText(int index) {
     switch (index) {
       case 0:
-        return '수백가지 스타일, \n다양한 캡 모자를 만나보세요!';
+        return '수많은 스타일, \n다양한 캡 모자를 만나보세요!';
       case 1:
-        return '카메라 켜고,\n내 얼굴에 딱 맞는 모자 확인!';
+        return '앱에서 확인하는\n나에게 딱 맞는 모자';
       case 2:
         return '바람처럼 가볍게,\n여름을 쓰다';
       default:

@@ -1,6 +1,7 @@
 import 'package:capture/database/category_api.dart';
 import 'package:capture/database/data.dart';
 import 'package:capture/models/product.dart';
+import 'package:capture/screens/Category/Style/style_screen.dart';
 import 'package:capture/screens/Category/Use/use_screen.dart';
 import 'package:capture/screens/Home/all_product_screen.dart';
 import 'package:capture/screens/Home/best_product_screen.dart';
@@ -124,38 +125,55 @@ class _HomeScreenState extends State<HomeScreen> {
                               pageSnapping: true,
                               physics: const ClampingScrollPhysics(),
                               itemBuilder: (context, index) {
-                                return Stack(
-                                  children: [
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                            ImagePaths.bannerImages[index],
-                                          ),
-                                          fit: BoxFit.cover,
+                                return GestureDetector(
+                                  onTap: () {
+                                    // 배너 클릭 시 처리
+                                    if (index == 0) {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              const StyleScreen(
+                                                  style: 'ballcap',
+                                                  title: '볼캡'),
                                         ),
-                                      ),
-                                    ),
-                                    Positioned(
-                                      left: 5.w,
-                                      bottom: 50.h,
-                                      child: Container(
-                                        padding: EdgeInsets.symmetric(
-                                          horizontal: 12.w,
-                                          vertical: 8.h,
-                                        ),
-                                        child: Text(
-                                          ImagePaths.bannerText(index),
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 40.sp,
-                                            fontFamily: 'Pretendard',
-                                            fontWeight: FontWeight.bold,
+                                      );
+                                    } else if (index == 1) {
+                                    } else if (index == 2) {}
+                                  },
+                                  child: Stack(
+                                    children: [
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                            image: AssetImage(
+                                              ImagePaths.bannerImages[index],
+                                            ),
+                                            fit: BoxFit.cover,
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                      Positioned(
+                                        left: 5.w,
+                                        bottom: 50.h,
+                                        child: Container(
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal: 12.w,
+                                            vertical: 8.h,
+                                          ),
+                                          child: Text(
+                                            ImagePaths.bannerText(index),
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 40.sp,
+                                              fontFamily: 'Pretendard',
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 );
                               },
                             ),

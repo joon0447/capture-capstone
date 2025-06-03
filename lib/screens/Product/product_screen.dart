@@ -1,6 +1,8 @@
+import 'package:capture/constants/ar_controller.dart';
 import 'package:capture/database/like.dart';
 import 'package:capture/database/like_provider.dart';
 import 'package:capture/models/product.dart';
+import 'package:capture/screens/AR/ar_product_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -141,13 +143,65 @@ class _ProductScreenState extends State<ProductScreen> {
                                   fontWeight: FontWeight.w700,
                                 ),
                               ),
+                              Text(
+                                '★${widget.product?.rate.toStringAsFixed(1)}',
+                                style: TextStyle(
+                                  fontSize: 25.sp,
+                                  fontWeight: FontWeight.w700,
+                                  color: const Color(0xFFFFA20C),
+                                ),
+                              ),
                             ],
                           ),
                         ),
                         GestureDetector(
-                          onTap: () {
-                            // TODO: 미리보기 기능 구현
-                            print('미리보기 클릭');
+                          onTap: () async {
+                            try {
+                              // 로딩 표시
+                              showDialog(
+                                context: context,
+                                barrierDismissible: false,
+                                builder: (context) => const Center(
+                                  child: CircularProgressIndicator(),
+                                ),
+                              );
+
+                              // AR 효과 로드
+                              await deepArController.switchEffectWithSlot(
+                                slot: 'cap',
+                                path: widget.product!.arPath,
+                              );
+
+                              // 로딩 닫기
+                              if (mounted) {
+                                Navigator.pop(context);
+                              }
+
+                              // AR 화면으로 이동
+                              if (mounted) {
+                                await Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ARProductScreen(
+                                      product: widget.product!,
+                                    ),
+                                  ),
+                                );
+                              }
+                            } catch (e) {
+                              // 에러 발생 시 로딩 닫기
+                              if (mounted) {
+                                Navigator.pop(context);
+                                // 에러 메시지 표시
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                        'AR 효과를 불러오는데 실패했습니다: ${e.toString()}'),
+                                    backgroundColor: Colors.red,
+                                  ),
+                                );
+                              }
+                            }
                           },
                           child: Column(
                             children: [

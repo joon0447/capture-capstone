@@ -70,10 +70,10 @@ class _SplashScreenState extends State<SplashScreen> {
                     fontFamily: 'Pretendard',
                   ),
                 ),
-                const Text(
-                  '쇼핑의 즐거움',
+                Text(
+                  'AR로 미리보는 모자 쇼핑',
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 25.sp,
                     fontFamily: 'Pretendard',
                     color: Colors.grey,
                   ),
