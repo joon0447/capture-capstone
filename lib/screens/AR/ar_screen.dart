@@ -14,8 +14,35 @@ class ARScreen extends StatefulWidget {
 }
 
 class _ARScreenState extends State<ARScreen> {
+  int currentPageIndex = 0;
+
+  Future<void> _switchEffect(
+      DeepArController deepArController, Product product) async {
+    await deepArController.switchEffectWithSlot(
+      slot: 'cap',
+      path: product.arPath,
+    );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    Product product = Product.fromMap(CategoryApi.allData[0]);
+    setState(() {
+      _switchEffect(deepArController, product);
+    });
+  }
+
+  void onPageChanged(int index) {
+    Product product = Product.fromMap(CategoryApi.allData[index]);
+    setState(() {
+      _switchEffect(deepArController, product);
+    });
+    // 여기에 페이지가 변경될 때 실행할 함수를 추가하세요
+  }
+
   Widget buildCameraPreview() => SizedBox(
-        height: MediaQuery.of(context).size.height * 0.82,
+        height: MediaQuery.of(context).size.height * 0.9,
         child: Transform.scale(
           scale: 1.5,
           child: DeepArPreview(deepArController),
@@ -31,12 +58,12 @@ class _ARScreenState extends State<ARScreen> {
           Positioned(
             left: 0,
             right: 0,
-            bottom: 10,
+            bottom: 0,
             child: SizedBox(
-              height: 150.h,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
+              height: 200.h,
+              child: PageView.builder(
                 itemCount: CategoryApi.allData.length,
+                onPageChanged: onPageChanged,
                 itemBuilder: (context, index) {
                   return productARCard(
                     Product.fromMap(CategoryApi.allData[index]),
