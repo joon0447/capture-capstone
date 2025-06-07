@@ -98,7 +98,7 @@ class _NavMainIcon extends StatelessWidget {
           alignment: Alignment.center,
           children: [
             Positioned(
-              bottom: NavConstants.mainTextOffset.h,
+              bottom: NavConstants.mainTextOffset.h + 5.h,
               child: Text(
                 '미리보기',
                 style: TextStyle(
