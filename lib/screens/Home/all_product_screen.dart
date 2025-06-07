@@ -50,7 +50,7 @@ class _AllProductScreenState extends State<AllProductScreen> {
             });
           });
           break;
-        case '가격순':
+        case '낮은 가격순':
           CategoryApi.getAllData().then((data) {
             setState(() {
               _sortedProducts = List.from(data)
@@ -115,9 +115,9 @@ class _AllProductScreenState extends State<AllProductScreen> {
                   ),
                 ),
                 PopupMenuItem<String>(
-                  value: '가격순',
+                  value: '낮은 가격순',
                   child: Text(
-                    '가격순',
+                    '낮은 가격순',
                     style: TextStyle(
                       fontFamily: 'Pretendard',
                       fontSize: 25.sp,

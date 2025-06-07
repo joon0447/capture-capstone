@@ -1,4 +1,3 @@
-import 'package:capture/screens/Search/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -35,23 +34,23 @@ class SearchAppBarWidget extends StatelessWidget
           fontWeight: FontWeight.w600,
         ),
       ),
-      actions: [
-        IconButton(
-          icon: Icon(Icons.search, color: Colors.black, size: 45.sp),
-          onPressed: onSearchTap ??
-              () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => SearchScreen(onBack: () {
-                      Navigator.pop(context);
-                    }),
-                  ),
-                );
-              },
-        ),
-        SizedBox(width: 8.w),
-      ],
+      // actions: [
+      //   IconButton(
+      //     icon: Icon(Icons.search, color: Colors.black, size: 45.sp),
+      //     onPressed: onSearchTap ??
+      //         () {
+      //           Navigator.push(
+      //             context,
+      //             MaterialPageRoute(
+      //               builder: (context) => SearchScreen(onBack: () {
+      //                 Navigator.pop(context);
+      //               }),
+      //             ),
+      //           );
+      //         },
+      //   ),
+      //   SizedBox(width: 8.w),
+      // ],
     );
   }
 

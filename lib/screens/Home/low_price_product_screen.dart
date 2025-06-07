@@ -14,7 +14,7 @@ class LowPriceProductScreen extends StatefulWidget {
 }
 
 class _LowPriceProductScreenState extends State<LowPriceProductScreen> {
-  String _selectedSort = '가격순';
+  String _selectedSort = '낮은 가격순';
   List<dynamic> _sortedProducts = [];
 
   @override
@@ -48,7 +48,7 @@ class _LowPriceProductScreenState extends State<LowPriceProductScreen> {
             });
           });
           break;
-        case '가격순':
+        case '낮은 가격순':
           CategoryApi.getAllData().then((data) {
             setState(() {
               _sortedProducts = List.from(data)
@@ -122,9 +122,9 @@ class _LowPriceProductScreenState extends State<LowPriceProductScreen> {
                       ),
                     ),
                     PopupMenuItem<String>(
-                      value: '가격순',
+                      value: '낮은 가격순',
                       child: Text(
-                        '가격순',
+                        '낮은 가격순',
                         style: TextStyle(
                           fontFamily: 'Pretendard',
                           fontSize: 25.sp,

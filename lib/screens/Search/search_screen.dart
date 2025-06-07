@@ -180,27 +180,37 @@ class _SearchScreenState extends State<SearchScreen> {
                     },
                   ),
                 ),
-                SizedBox(
-                  height: 800.h, // 고정된 높이 설정
-                  child: GridView.builder(
-                    physics: const NeverScrollableScrollPhysics(), // 스크롤 비활성화
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      childAspectRatio: 0.6,
-                      crossAxisSpacing: 12.w,
-                      mainAxisSpacing: 16.h,
-                    ),
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
-                    itemCount: _searchResults.length,
-                    itemBuilder: (context, index) {
-                      return productPreviewLargeCard(
-                        Product.fromMap(_searchResults[index]),
-                        context,
-                      );
-                    },
-                  ),
+                LayoutBuilder(
+                  builder: (context, constraints) {
+                    final itemHeight = (constraints.maxWidth / 2 - 12.w) / 0.6;
+                    final rows = (_searchResults.length / 2).ceil();
+                    final totalHeight =
+                        (itemHeight * rows) + (16.h * (rows - 1)) + 16.h;
+
+                    return SizedBox(
+                      height: totalHeight,
+                      child: GridView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          childAspectRatio: 0.6,
+                          crossAxisSpacing: 12.w,
+                          mainAxisSpacing: 16.h,
+                        ),
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 12.w, vertical: 20.h),
+                        itemCount: _searchResults.length,
+                        itemBuilder: (context, index) {
+                          return productPreviewLargeCard(
+                            Product.fromMap(_searchResults[index]),
+                            context,
+                          );
+                        },
+                      ),
+                    );
+                  },
                 ),
+                SizedBox(height: 100.h),
               ],
             ),
           ),
