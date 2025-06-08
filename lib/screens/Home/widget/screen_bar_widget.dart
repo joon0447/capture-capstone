@@ -15,7 +15,7 @@ class ScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: EdgeInsets.only(top: 30.h),
+        padding: EdgeInsets.only(top: 10.h),
         child: AppBar(
           backgroundColor: Colors.white,
           elevation: 0,
